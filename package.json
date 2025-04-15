@@ -1,0 +1,43 @@
+{
+  "name": "@libretto/core",
+  "main": "lib/src/index.js",
+  "version": "0.1.0",
+  "types": "lib/src/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/libretto-ai/openai-ts.git"
+  },
+  "homepage": "https://www.libretto.ai/",
+  "scripts": {
+    "build": "tsc",
+    "clean": "rm -rf lib/",
+    "prepublish": "npm run build",
+    "prettier": "prettier .",
+    "eslint": "eslint .",
+    "eslint:fix": "eslint . --fix",
+    "test": "jest"
+  },
+  "files": [
+    "lib/src"
+  ],
+  "devDependencies": {
+    "@jest/globals": "^29.7.0",
+    "@types/jest": "^29.5.14",
+    "@typescript-eslint/eslint-plugin": "^8.29.0",
+    "@typescript-eslint/parser": "^8.29.0",
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^10.1.1",
+    "jest": "^29.7.0",
+    "prettier": "^3.5.3",
+    "ts-jest": "^29.2.5",
+    "typescript": "^5.8.2"
+  },
+  "dependencies": {
+    "@libretto/redact-pii-light": "^1.0.1",
+    "limiter": "3.0.0",
+    "p-limit": "3.1.0"
+  },
+  "volta": {
+    "node": "20.13.1"
+  }
+}
