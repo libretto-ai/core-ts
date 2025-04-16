@@ -1,0 +1,27 @@
+name: Tests
+on:
+  pull_request:
+  push:
+    branches: main
+jobs:
+  test:
+    # proactively cancel the same job running on the same branch when a newer
+    # one comes in
+    concurrency:
+      group: ${{ github.ref }}
+      cancel-in-progress: true
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
+      - run: npm ci
+      # test before build as to not mess with coverage
+      - run: npm test
+      - run: npm run eslint
+      - run: npm run prettier -- --check
+      - run: npm run build
