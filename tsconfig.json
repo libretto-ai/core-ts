@@ -10,6 +10,7 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "outDir": "lib",
+    "rootDir": ".",
     "declaration": true
   },
   "include": ["src/**/*", "examples/**/*"]
