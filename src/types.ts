@@ -30,6 +30,11 @@ export type CoreLibrettoCreateParams<TEMPLATE_CHAT = never> = {
 };
 
 /**
+ * Each supported sdk from Libretto should be available here.
+ */
+export type LibrettoEventSource = "openai" | "anthropic" | "vercel-ai";
+
+/**
  * Data used to mostly send to the send event call
  */
 export interface CoreEventMetadata<
@@ -63,4 +68,5 @@ export interface CoreEventMetadata<
   modelParameters?: MODEL_PARAMETERS extends never ? never : MODEL_PARAMETERS;
   toolCalls?: TOOL_CALLS extends never ? never : TOOL_CALLS;
   responseMetrics?: METRICS extends never ? never : METRICS;
+  source?: LibrettoEventSource;
 }
